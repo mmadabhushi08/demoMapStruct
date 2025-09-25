@@ -7,13 +7,15 @@ import org.testmm.demomapstruct.model.Student;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface StudentMapper {
-    StudentRequestDto studentToStudentRequestDto(Student student);
+//    StudentRequestDto studentToStudentRequestDto(Student student);
+
+    Student studentRequestDtoToStudent(StudentRequestDto student);
 
     StudentDto studentToStudentDto(Student student);
 
     List<StudentDto> studentToStudentDto(List<Student> student);
 
-    Student  studentDtoToStudent(StudentDto student);
+//    Student studentDtoToStudent(StudentDto student);
 }
