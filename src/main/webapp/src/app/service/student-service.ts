@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Student } from '../model/student';
 import { Observable } from 'rxjs';
 
@@ -10,10 +11,11 @@ export class StudentService {
 
   private studentsUrl: string;
   private studentsSaveUrl: string;
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {
-    this.studentsUrl = 'http://localhost:8086/student/all';
-    this.studentsSaveUrl = 'http://localhost:8086/student/save';
+    this.studentsUrl = this.baseUrl + 'student/all';
+    this.studentsSaveUrl = this.baseUrl + '/student/save';
   }
 
   public findAll(): Observable<Student[]> {
