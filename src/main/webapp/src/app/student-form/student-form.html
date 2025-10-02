@@ -1,0 +1,48 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="student.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter student name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!addr.pristine" class="alert alert-danger">Addr is required</div>
+      <div class="form-group">
+        <label for="addr">Addr</label>
+        <input type="text" [(ngModel)]="student.addr"
+               class="form-control"
+               id="addr"
+               name="addr"
+               placeholder="Enter student addr"
+               required #addr="ngModel">
+      </div>
+      <div [hidden]="!addr.pristine" class="alert alert-danger">Addr is required</div>
+      <div class="form-group">
+        <label for="score">Score</label>
+        <input type="text" [(ngModel)]="student.score"
+               class="form-control"
+               id="score"
+               name="score"
+               placeholder="Enter student score"
+               required #score="ngModel">
+      </div>
+      <div [hidden]="!score.pristine" class="alert alert-danger">Score is required</div>
+      <!-- <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="user.email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+      </div> -->
+      <button type="submit" [disabled]="!userForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
